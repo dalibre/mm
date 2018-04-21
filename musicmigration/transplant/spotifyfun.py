@@ -5,12 +5,16 @@ import spotipy.client as client
 from functools import reduce, wraps, partial
 from operator import itemgetter
 
+
+def getSpotifyCredentials():
+    creds = itemgetter('CLIENT_ID', 'CLIENT_SECRET', 'REDIRECT_URL')
+    return creds(os.environ)
+    #return [os.getenv(c) for c in creds]
 # scope = 'user-follow-read'
 # username = 'affennacken'
 # token = util.prompt_for_user_token(username, scope, client_id=os.environ['CLIENT_ID'],
 #                                     client_secret=os.environ['CLIENT_SECRET'],
 #                                     redirect_uri=os.environ['REDIRECT_URL'])
-
 
 
 # sc = client.Spotify(auth=token)
